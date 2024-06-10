@@ -10,7 +10,16 @@
     <input type="number" name="solde" id="solde" placeholder="Renseignez le solde du compte">
     <br>
     <label for="fk_clients">Titulaire (fk)</label>
-    <input type="number" name="fk_clients" id="fk_clients" placeholder="Entez la  fk du client">
+    <select name="fk_clients" id="fk_clients">
+        <?php
+        foreach($clients as $client){
+            echo "<option value='" . $client["id_clients"] . "'>";
+            echo $client["nom"] . " " . $client["prenom"];
+            echo "</option>";
+        }
+        ?>
+    </select>
+    <!-- <input type="number" name="fk_clients" id="fk_clients" placeholder="Entez la  fk du client"> -->
     <br>
     <input type="submit" value="Envoyer">
 </form>

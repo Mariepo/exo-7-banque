@@ -6,6 +6,7 @@
         <th>Numéro du compte</th>
         <th>Solde</th>
         <th>Titulaire</th>
+        <th>Actions</th>
     </thead>
     <tbody>
         <?php
@@ -15,6 +16,7 @@
                     echo "<td>".$compte["numero_compte"]."</td>";
                     echo "<td>".$compte["solde"]."€ </td>";
                     echo "<td>".$compte["titulaire"]."</td>";
+                    echo "<td> <button onclick='redirectToDetailsCompte(" . $compte['id_comptes'] .")'> Voir compte </button> </td>";
                 echo "</tr>";
             };
         ?>
@@ -25,4 +27,8 @@
     function redirectToCreateCompte(){
         window.location.replace("../Controllers/CompteController.php?action=create");
     };
+
+    function redirectToDetailsCompte(id_comptes){
+        window.location.replace("../Controllers/CompteController.php?action=details&id_comptes="+id_comptes)
+    }
 </script>
