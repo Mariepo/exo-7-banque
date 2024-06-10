@@ -1,8 +1,4 @@
-<!-- <?php
-
-var_dump($clients);
-
-?> -->
+<button onclick="redirectToCreateClient()">Ajouter un client</button>
 
 <table>
     <thead>
@@ -26,3 +22,9 @@ var_dump($clients);
         ?>
     </tbody>
 </table>
+
+<script type="text/javascript">
+    function redirectToCreateClient(){
+        window.location.replace("../Controllers/ClientController.php?action=create");
+    };
+</script>

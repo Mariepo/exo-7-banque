@@ -2,8 +2,19 @@
 
 require_once '../Models/Compte.php';
 
-// Faire appelle à la fonction FetchComptes
-$comptes = fetchCompte();
 
-// Inclure la vue dans ../Views/comptes/index.php
-include '../Views/comptes/index.php';
+if(!isset($_GET['action'])){
+    $comptes = fetchCompte();
+    include '../Views/comptes/index.php';
+} else {
+    if($_GET['action'] == "create"){
+        include '../Views/comptes/create.php';
+    } 
+    if($_GET['action'] == "insert"){
+        $numero = $_POST['numero'];
+        $solde = $_POST['solde'];
+        $fk_clients = $_POST['fk_clients'];
+        insertCompte($numero, $solde, $fk_clients);
+        header('Location: CompteController.php');
+    } 
+}
