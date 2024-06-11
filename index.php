@@ -3,6 +3,7 @@
 
     <button onclick="redirectToClients()">Clients</button>
     <button onclick="redirectToComptes()">Comptes</button>
+    <button onclick="redirectToTransaction()">Faire un virement</button>
 
     <script type="text/javascript">
         function redirectToClients(){
@@ -10,5 +11,8 @@
         }
         function redirectToComptes(){
             window.location.replace('./Controllers/CompteController.php');
+        }
+        function redirectToTransaction(){
+            window.location.replace('./Controllers/TransactionController.php');
         }
     </script>

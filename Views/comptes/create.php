@@ -1,7 +1,3 @@
-<!-- formulaire ajout de compte avec une action sur le fichier CompteController.php?action=insert -->
-<!-- formulaire en post -->
-
-
 <form action="../Controllers/CompteController.php?action=insert" method="post">
     <label for="numero">Numéro du compte</label>
     <input type="number" name="numero" id="numero" placeholder="Renseignez le numero du compte">
