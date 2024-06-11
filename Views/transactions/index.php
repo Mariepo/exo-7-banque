@@ -1,28 +1,31 @@
-<!-- Ici je veux un formulaire avec une liste selective pour le compte beneficiaire 
-Un champ montatn
-Et un liste selective pour le compte beneficiaire, ces deux listes devront reprendre les comptes 
-existant en bdd comme pour client dans la création d'un compte -->
-<form action="../Controllers/TransactionController.php?action=insert" method="POST">
-    <label for="debiteur">Compte débiteur : </label>  
-    <select name="debiteur" id="debiteur">
+<button onclick="redirectToCreateTransaction()">Faire un virement</button>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Montant</th>
+        <th>Compte débiteur</th>
+        <th>Compte bénéficiaire</th>
+        <th>Date
+        </th>
+    </thead>
+    <tbody>
         <?php
-            foreach($comptes as $compte){
-                echo "<option value='" . $compte['id_comptes'] . "'> " . $compte['numero_compte'] . "</option>";
+            foreach($transactions as $transaction){
+                echo "<tr>";
+                    echo "<td>" . $transaction["id_transactions"] . "</td>";
+                    echo "<td>" . $transaction["montant"] . "€</td>";
+                    echo "<td>" . $transaction["debiteur"] . "</td>";
+                    echo "<td>" . $transaction["beneficiaire"] . "</td>";
+                    echo "<td>" . $transaction["date"] . "</td>";
+                echo "</tr>";
             }
         ?>
-    </select>
-    <br><br>
-    <label for="montant">Montant :</label>
-    <input type="number" name="montant" id="montant">
-    <br><br>
-    <label for="beneficiaire">Compte bénéficiaire : </label>  
-    <select name="beneficiaire" id="beneficiaire">
-    <?php
-            foreach($comptes as $compte){
-                echo "<option value='" . $compte['id_comptes'] . "'> " . $compte['numero_compte'] . "</option>";
-            }
-        ?>
-    </select>
-    <br><br>
-    <input type="submit" value="Valider le virement">
-</form>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function redirectToCreateTransaction(){
+        window.location.replace("../Controllers/TransactionController.php?action=create");
+    }
+</script>

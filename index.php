@@ -3,7 +3,7 @@
 
     <button onclick="redirectToClients()">Clients</button>
     <button onclick="redirectToComptes()">Comptes</button>
-    <button onclick="redirectToTransaction()">Faire un virement</button>
+    <button onclick="redirectToTransaction()">Virements</button>
 
     <script type="text/javascript">
         function redirectToClients(){

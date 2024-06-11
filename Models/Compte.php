@@ -52,4 +52,3 @@ function updateCompteMontantBeneficiaire($montant, $id_comptes){
 }
 
 
-
